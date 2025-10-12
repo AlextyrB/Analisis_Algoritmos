@@ -10,7 +10,7 @@ public class CesarDecoder {
         try {
             String mensajeCifrado = leerArchivo(nombreArchivo);
             System.out.println("Mensaje cifrado: " + mensajeCifrado);
-            System.out.println("\n=== DESCIFRANDO POR FUERZA BRUTA ===\n");
+            System.out.println("\nDESCIFRANDO POR FUERZA BRUTA\n");
 
             String mejorResultado = "";
             int mejorDesplazamiento = -1;
@@ -35,11 +35,8 @@ public class CesarDecoder {
 
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
-            System.out.println("\nPrueba con un mensaje de ejemplo:");
-            pruebaConEjemplo();
         }
     }
-
 
     private static String leerArchivo(String nombreArchivo) throws IOException {
         return new String(Files.readAllBytes(Paths.get(nombreArchivo)));
@@ -60,33 +57,6 @@ public class CesarDecoder {
         }
 
         return resultado.toString();
-    }
-
-    private static void pruebaConEjemplo() {
-        String ejemploCifrado = "ipmb,ñyñfp";
-        System.out.println("\nMensaje cifrado de ejemplo: " + ejemploCifrado);
-        System.out.println("\n=== DESCIFRANDO ===\n");
-
-        String mejorResultado = "";
-        int mejorDesplazamiento = -1;
-
-        for (int desplazamiento = 0; desplazamiento < ALFABETO.length(); desplazamiento++) {
-            String mensajeDescifrado = descifrar(ejemploCifrado, desplazamiento);
-            System.out.println("Desplazamiento " + desplazamiento + ": " + mensajeDescifrado);
-
-            if (tieneSentido(mensajeDescifrado)) {
-                mejorResultado = mensajeDescifrado;
-                mejorDesplazamiento = desplazamiento;
-            }
-        }
-
-        if (mejorDesplazamiento != -1) {
-            System.out.println("\n" + "=".repeat(60));
-            System.out.println("RESULTADO FINAL ENCONTRADO:");
-            System.out.println("Desplazamiento: " + mejorDesplazamiento);
-            System.out.println("Mensaje descifrado: " + mejorResultado);
-            System.out.println("=".repeat(60));
-        }
     }
 
     private static boolean tieneSentido(String mensaje) {
