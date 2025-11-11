@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-class MazeViewer extends JPanel implements ActionListener {
+class VistaLab extends JPanel implements ActionListener {
     private final char[][] laberinto;
     private final List<List<Posicion>> historialRuta;
     private final int TAMAÑO_CELDA = 30;
@@ -17,7 +17,7 @@ class MazeViewer extends JPanel implements ActionListener {
 
     private List<Posicion> rutaActual = new ArrayList<>();
 
-    public MazeViewer(char[][] laberinto, List<List<Posicion>> historialRuta) {
+    public VistaLab(char[][] laberinto, List<List<Posicion>> historialRuta) {
         this.laberinto = laberinto;
         this.historialRuta = historialRuta;
         int filas = laberinto.length;

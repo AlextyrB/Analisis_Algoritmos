@@ -5,7 +5,7 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-class MazeSolver {
+class SolucionLab {
     private char[][] laberinto;
     private int filas;
     private int columnas;

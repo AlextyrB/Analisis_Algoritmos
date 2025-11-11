@@ -9,7 +9,7 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("Intentando cargar y resolver el laberinto desde: " + NOMBRE_ARCHIVO);
-        MazeSolver solver = new MazeSolver();
+        SolucionLab solver = new SolucionLab();
         if (solver.cargarLaberinto(NOMBRE_ARCHIVO)) {
             solver.imprimirLaberinto();
             List<List<Posicion>> historialRuta = solver.resolverPasoAPaso();
@@ -17,11 +17,11 @@ public class Main {
                 JFrame frame = new JFrame("Solucionador de Laberintos - Proceso de Backtracking");
                 if (historialRuta != null && !historialRuta.isEmpty()) {
                     System.out.println("\nIniciando visualización del proceso de Backtracking (" + historialRuta.size() + " pasos totales).");
-                    MazeViewer viewer = new MazeViewer(solver.getLaberinto(), historialRuta);
+                    VistaLab viewer = new VistaLab(solver.getLaberinto(), historialRuta);
                     frame.add(viewer);
                 } else {
                     System.out.println("\n No se pudo resolver el laberinto. Mostrando laberinto estático.");
-                    MazeViewer viewer = new MazeViewer(solver.getLaberinto(), new ArrayList<>());
+                    VistaLab viewer = new VistaLab(solver.getLaberinto(), new ArrayList<>());
                     frame.add(viewer);
                 }
                 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
