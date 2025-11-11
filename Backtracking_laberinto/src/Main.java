@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 public class Main {
-    private static final String NOMBRE_ARCHIVO = "laberinto1.cvs";
+    private static final String NOMBRE_ARCHIVO = "laberinto.cvs";
 
     public static void main(String[] args) {
 
@@ -31,6 +31,22 @@ public class Main {
             });
         } else {
             System.err.println("Fallo al cargar el laberinto. Asegúrate de que el archivo exista y esté en formato correcto.");
+        }
+        solver.imprimirLaberinto();
+
+        List<List<Posicion>> rutaSolucion = solver.resolverPasoAPaso();
+        if (rutaSolucion != null) {
+            System.out.println("\n¡Ruta de Solución Encontrada! (Backtracking)");
+            System.out.println("La ruta se compone de " + rutaSolucion.size() + " pasos:");
+            int i = 0;
+            for (List<Posicion> p : rutaSolucion) {
+                if (i == 0) System.out.println("  ENTRADA (E): " + p.toString());
+                else if (i == rutaSolucion.size() - 1) System.out.println("  SALIDA (S): " + p.toString());
+                else System.out.println("  Paso " + i + ": " + p.toString());
+                i++;
+            }
+        } else {
+            System.out.println("\n❌ No existe una ruta de solución entre 'E' y 'S'.");
         }
     }
 }

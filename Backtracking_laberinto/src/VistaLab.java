@@ -56,7 +56,7 @@ class VistaLab extends JPanel implements ActionListener {
                 switch (laberinto[r][c]) {
                     case '1': g.setColor(Color.BLACK); break;
                     case '0': g.setColor(Color.WHITE); break;
-                    case 'E': g.setColor(Color.GREEN); break;
+                    case 'E': g.setColor(Color.BLUE); break;
                     case 'S': g.setColor(Color.RED); break;
                     default: g.setColor(Color.LIGHT_GRAY);
                 }
